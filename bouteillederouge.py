@@ -249,7 +249,7 @@ def snap():
         flash(Markup(flash_msg['api_is_stop'][pm.config.info.langage].format('<i>Snap!</i>', url_for('logs'),url_for('APIstart'))), 'alert')
     return render_template(
         'base-iframe.html',
-        iframe_src='http://localhost:8601/' #url_for('base_static_snap', filename='snap.html')
+        iframe_src='http://{}:8601/'.format(find_local_ip())
     )
 @app.route('/programming/snap/<path:filename>')
 def base_static_snap(filename):
